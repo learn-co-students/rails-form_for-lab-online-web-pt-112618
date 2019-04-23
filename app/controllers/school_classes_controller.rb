@@ -14,9 +14,13 @@ class SchoolClassesController < ApplicationController
   end
 
   def edit
+    @school_class = SchoolClass.find_by(params[:id])
   end
 
   def update
+    @school_class = SchoolClass.find_by(params[:id])
+    @school_class.update(school_class_params)
+    redirect_to school_class_path(@school_class)
   end
 
   private
